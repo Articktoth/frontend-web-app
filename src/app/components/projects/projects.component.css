@@ -1,0 +1,8 @@
+.card{
+    min-width: 18rem;
+    margin-top: 5rem;
+}
+
+.card-footer{
+    bottom: 0;
+}

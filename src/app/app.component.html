@@ -1,0 +1,22 @@
+<div class="container">
+
+  <ul class="nav justify-content-between my-3">
+    <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/sobre-mi']">Sobre mi</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/proyectos']">Proyectos</a></li>
+      </ul>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/signin']">Login</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/signup']">Register</a></li>
+      </ul>
+    </ng-container>
+    <ng-template #loggedIn>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/sobre-mi']">Sobre mi</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/proyectos']">Proyectos</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/crear-proyecto']">Crear proyecto</a></li>
+      <li class="nav-item"><a class="nav-link" (click)="authService.logout()" [routerLink]="['/logout']">Logout</a></li>
+    </ng-template>
+  </ul>
+</div>
+<router-outlet></router-outlet>

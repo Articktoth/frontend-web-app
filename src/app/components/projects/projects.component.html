@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Proyectos</h2>
+    <div class="card-deck my-2">
+        <div class="card" *ngFor="let project of projects" style="max-width: 20rem;">
+            <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+                <span>
+                    <img src="{{url + 'get-image/'+ project.image}}" *ngIf="project.image" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{project.name}}</h5>
+                        <p class="card-text">{{project.category}}</p>
+                    </div>
+                </span>
+            </ng-container>
+            <ng-template #loggedIn>
+                <a [routerLink]="['/proyecto', project._id]">
+                    <img src="{{url + 'get-image/'+ project.image}}" *ngIf="project.image" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{project.name}}</h5>
+                        <p class="card-text">{{project.category}}</p>
+                    </div>
+                </a>
+            </ng-template>
+        </div>
+    </div>
+</div>
